@@ -1,5 +1,6 @@
 "use strict";
 exports.__esModule = true;
+exports.Location = void 0;
 var Location = /** @class */ (function () {
     function Location(a, b) {
         if (typeof a === "number") {

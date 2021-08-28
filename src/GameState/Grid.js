@@ -1,12 +1,15 @@
 "use strict";
-var __spreadArrays = (this && this.__spreadArrays) || function () {
-    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-            r[k] = a[j];
-    return r;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 exports.__esModule = true;
+exports.Grid = exports.TileOccupant = void 0;
 var Location_1 = require("./Location");
 var Snake_1 = require("./Snake");
 var Apple_1 = require("./Apple");
@@ -76,9 +79,8 @@ var Grid = /** @class */ (function () {
         this.setLocations(locations, TileOccupant.NONE);
     };
     Grid.prototype.setPosition = function (locations) {
-        console.log(locations[0]);
         this.setLocation(locations[0], TileOccupant.HEAD);
-        var body = __spreadArrays(locations);
+        var body = __spreadArray([], locations, true);
         body.shift();
         this.setLocations(body, TileOccupant.BODY);
     };

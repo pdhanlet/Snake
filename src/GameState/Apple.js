@@ -1,5 +1,6 @@
 "use strict";
 exports.__esModule = true;
+exports.Apple = void 0;
 function randomInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }

@@ -1,6 +1,7 @@
 "use strict";
 var _a;
 exports.__esModule = true;
+exports.directionCoordinates = exports.Direction = void 0;
 var Location_1 = require("./Location");
 var Direction;
 (function (Direction) {
