@@ -1,23 +1,25 @@
-import { Grid, TileOccupant } from "./GameState/Grid";
-import { Direction } from "./GameState/Direction";
+"use strict";
+exports.__esModule = true;
+var Grid_1 = require("./GameState/Grid");
+var Direction_1 = require("./GameState/Direction");
 var prompt = require("prompt-sync")();
 function printGrid(tiles) {
-    for (let y = tiles[0].length - 1; y >= 0; y--) {
-        for (let x = 0; x < tiles.length; x++) {
+    for (var y = tiles[0].length - 1; y >= 0; y--) {
+        for (var x = 0; x < tiles.length; x++) {
             if (x == 0) {
-                process.stdout.write(`${y} `);
+                process.stdout.write(y + " ");
             }
             switch (tiles[x][y]) {
-                case TileOccupant.NONE:
+                case Grid_1.TileOccupant.NONE:
                     process.stdout.write("-");
                     break;
-                case TileOccupant.HEAD:
+                case Grid_1.TileOccupant.HEAD:
                     process.stdout.write("H");
                     break;
-                case TileOccupant.BODY:
+                case Grid_1.TileOccupant.BODY:
                     process.stdout.write("B");
                     break;
-                case TileOccupant.APPLE:
+                case Grid_1.TileOccupant.APPLE:
                     process.stdout.write("A");
                     break;
             }
@@ -25,31 +27,30 @@ function printGrid(tiles) {
         console.log();
     }
     process.stdout.write(" ");
-    for (let x = 0; x < tiles.length; x++) {
-        process.stdout.write(`${x}`);
+    for (var x = 0; x < tiles.length; x++) {
+        process.stdout.write("" + x);
     }
 }
 function getInput() {
-    let validInputs = {
-        "a": Direction.LEFT,
-        "d": Direction.RIGHT,
-        "w": Direction.UP,
-        "s": Direction.DOWN
+    var validInputs = {
+        "a": Direction_1.Direction.LEFT,
+        "d": Direction_1.Direction.RIGHT,
+        "w": Direction_1.Direction.UP,
+        "s": Direction_1.Direction.DOWN
     };
     while (true) {
         console.log();
-        let input = prompt("Choose a direction (asdw): ");
+        var input = prompt("Choose a direction (asdw): ");
         if (input in validInputs) {
             return validInputs[input];
         }
         prompt("Invalid input please try again. (enter)");
     }
 }
-let grid = new Grid();
+var grid = new Grid_1.Grid();
 while (true) {
     printGrid(grid.getTilesAndDirection().tiles);
     if (grid.nextFrame(getInput())) {
         break;
     }
 }
-//# sourceMappingURL=TextSnake.js.map

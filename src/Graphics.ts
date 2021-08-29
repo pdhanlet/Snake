@@ -7,7 +7,7 @@ export class Graphics {
     private two: Two;
 
     public constructor() {
-        let elem: HTMLElement = document.createElement("two");
+        let elem: HTMLElement = document.createElement(null);
         document.body.appendChild(elem);
         this.two = new Two({width: 1000, height: 1000}).appendTo(elem);
     }

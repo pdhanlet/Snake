@@ -10,7 +10,7 @@ var Direction_1 = require("./GameState/Direction");
 var twojs_ts_1 = __importDefault(require("twojs-ts"));
 var Graphics = /** @class */ (function () {
     function Graphics() {
-        var elem = document.createElement("two");
+        var elem = document.createElement(null);
         document.body.appendChild(elem);
         this.two = new twojs_ts_1["default"]({ width: 1000, height: 1000 }).appendTo(elem);
     }
