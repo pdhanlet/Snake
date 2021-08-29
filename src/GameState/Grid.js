@@ -41,7 +41,7 @@ var Grid = /** @class */ (function () {
         this.setApple(appleLocation);
     }
     Grid.prototype.nextFrame = function (direction) {
-        console.log("Input = " + direction);
+        console.log("In Grid = " + direction);
         if (direction == undefined)
             direction = +this.snake.getDirection();
         var nextHead = this.snake.getNextHead(direction);

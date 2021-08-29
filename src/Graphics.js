@@ -15,6 +15,7 @@ var Graphics = /** @class */ (function () {
         this.two = new twojs_ts_1["default"]({ width: 1000, height: 1000 }).appendTo(elem);
     }
     Graphics.prototype.renderGrid = function (gridInfo) {
+        this.two.clear();
         this.drawBoundries();
         var tiles = gridInfo.tiles;
         var direction = gridInfo.direction;
@@ -46,12 +47,12 @@ var Graphics = /** @class */ (function () {
         rectLeft.fill = "#000000";
     };
     Graphics.prototype.drawBody = function (location) {
-        var body = this.two.makeRectangle(location.x * 50 + 75, location.y * 50 + 75, 50, 50);
+        var body = this.two.makeRectangle(75 + location.x * 50, 475 - (location.y * 50), 50, 50);
         body.fill = "#00FF00";
     };
     Graphics.prototype.drawHead = function (location, direction) {
         var _a, _b;
-        var head = this.two.makeRectangle(location.x * 50 + 75, location.y * 50 + 75, 50, 50);
+        var head = this.two.makeRectangle(75 + location.x * 50, 475 - (location.y * 50), 50, 50);
         head.fill = "#00FF00";
         var leftEyePossibilties = (_a = {},
             _a[Direction_1.Direction.UP] = new Location_1.Location(16.6, 16.6),
@@ -59,7 +60,7 @@ var Graphics = /** @class */ (function () {
             _a[Direction_1.Direction.RIGHT] = new Location_1.Location(33.3, 16.6),
             _a[Direction_1.Direction.LEFT] = new Location_1.Location(16.6, 33.3),
             _a);
-        var leftEye = this.two.makeRectangle(location.x * 50 + 50 + leftEyePossibilties[direction].x, location.y * 50 + 50 + leftEyePossibilties[direction].y, 5, 5);
+        var leftEye = this.two.makeRectangle(location.x * 50 + 50 + leftEyePossibilties[direction].x, 500 - (location.y * 50 + 50 + leftEyePossibilties[direction].y), 5, 5);
         leftEye.fill = "#000000";
         var rightEyePossibilties = (_b = {},
             _b[Direction_1.Direction.UP] = new Location_1.Location(33.3, 16.6),
@@ -67,11 +68,11 @@ var Graphics = /** @class */ (function () {
             _b[Direction_1.Direction.RIGHT] = new Location_1.Location(33.3, 33.3),
             _b[Direction_1.Direction.LEFT] = new Location_1.Location(16.6, 16.6),
             _b);
-        var rightEye = this.two.makeRectangle(location.x * 50 + 50 + rightEyePossibilties[direction].x, location.y * 50 + 50 + rightEyePossibilties[direction].y, 5, 5);
+        var rightEye = this.two.makeRectangle(location.x * 50 + rightEyePossibilties[direction].x, 500 - (location.y * 50 + rightEyePossibilties[direction].y), 5, 5);
         rightEye.fill = "#000000";
     };
     Graphics.prototype.drawApple = function (location) {
-        var apple = this.two.makeRectangle(location.x * 50 + 75, location.y * 50 + 75, 50, 50);
+        var apple = this.two.makeRectangle(75 + location.x * 50, 475 - (location.y * 50), 50, 50);
         apple.fill = "#FF0000";
     };
     return Graphics;

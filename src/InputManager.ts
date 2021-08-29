@@ -11,14 +11,15 @@ export class InputManager {
         let elem = document.getElementById("test");
         elem.focus();
         //elem.addEventListener("keydown", this.onKeyPress);
-        this.press("s");
+        this.press(new KeyboardEvent("keydown", {key:"d"}));
+        console.log(`In constructor after press  = ${this.input}`);
         
     }
 
-    private press(key: string) {
-        console.log("Key pressed");
-        console.log(key);
-        switch (key) {
+    private press(e: KeyboardEvent) {
+ 
+        console.log(e.key);
+        switch (e.key) {
             case "a":
                 this.input = Direction.LEFT;
                 break;
@@ -31,12 +32,12 @@ export class InputManager {
             case "w":
                 this.input = Direction.UP;
         }
-        console.log(this.input);
+        console.log(`In key press  = ${this.input}`);
     }
 
-    // public getInput1() {
-    //     return this.input;
-    // }
+    public getInput1() {
+        return this.input;
+    }
 
     public getInput() {
         let tempInput = this.input;        

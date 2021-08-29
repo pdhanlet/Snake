@@ -39,7 +39,7 @@ export class Grid {
     }
 
     public nextFrame(direction: Direction): boolean {
-        console.log(`Input = ${direction}`);
+        console.log(`In Grid = ${direction}`);
         if (direction == undefined) direction = +this.snake.getDirection();
         let nextHead: Location = this.snake.getNextHead(direction);
         let eatsApple: boolean = nextHead.equals(this.apple.getLocation());

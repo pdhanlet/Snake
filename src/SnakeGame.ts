@@ -5,6 +5,7 @@ import {Graphics} from "./Graphics";
 export async function runGame() {    
     let grid = new Grid();
     let inputManager = new InputManager();
+    console.log(`After constructor  = ${inputManager.getInput1()}`)
     let graphics = new Graphics();
 
     graphics.renderGrid(grid.getTilesAndDirection());

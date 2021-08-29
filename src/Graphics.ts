@@ -13,6 +13,7 @@ export class Graphics {
     }
 
     public renderGrid(gridInfo: {tiles: TileOccupant[][], direction: Direction}) {
+        this.two.clear();
         this.drawBoundries();
         let tiles = gridInfo.tiles;
         let direction = gridInfo.direction;
@@ -46,12 +47,12 @@ export class Graphics {
     }
 
     private drawBody(location: Location) {
-        let body = this.two.makeRectangle(location.x * 50 + 75, location.y * 50 + 75, 50, 50);
+        let body = this.two.makeRectangle(75 + location.x * 50, 475 - (location.y * 50), 50, 50);
         body.fill = "#00FF00";
     }
 
     private drawHead(location: Location, direction: Direction) {
-        let head = this.two.makeRectangle(location.x * 50 + 75, location.y * 50 + 75, 50, 50);
+        let head = this.two.makeRectangle(75 + location.x * 50, 475 - (location.y * 50), 50, 50);
         head.fill = "#00FF00";
         let leftEyePossibilties = {
             [Direction.UP] : new Location(16.6, 16.6),
@@ -61,7 +62,7 @@ export class Graphics {
         }
         let leftEye = this.two.makeRectangle(
             location.x * 50 + 50 + leftEyePossibilties[direction].x, 
-            location.y * 50 + 50 + leftEyePossibilties[direction].y, 
+            500 - (location.y * 50 + 50 + leftEyePossibilties[direction].y), 
             5, 5);
         leftEye.fill = "#000000";
         let rightEyePossibilties = {
@@ -71,14 +72,14 @@ export class Graphics {
             [Direction.LEFT] : new Location(16.6, 16.6)
         }
         let rightEye = this.two.makeRectangle(
-            location.x * 50 + 50 + rightEyePossibilties[direction].x, 
-            location.y * 50 + 50 + rightEyePossibilties[direction].y, 
+            location.x * 50 + rightEyePossibilties[direction].x, 
+            500 - (location.y * 50 + rightEyePossibilties[direction].y), 
             5, 5);
         rightEye.fill = "#000000";
     }
 
     private drawApple(location: Location) {
-        let apple = this.two.makeRectangle(location.x * 50 + 75, location.y * 50 + 75, 50, 50);
+        let apple = this.two.makeRectangle(75 + location.x * 50, 475 - (location.y * 50), 50, 50);
         apple.fill = "#FF0000";
     }
 }

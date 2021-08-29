@@ -48,6 +48,7 @@ function runGame() {
                 case 0:
                     grid = new Grid_1.Grid();
                     inputManager = new InputManager_1.InputManager();
+                    console.log("After constructor  = " + inputManager.getInput1());
                     graphics = new Graphics_1.Graphics();
                     graphics.renderGrid(grid.getTilesAndDirection());
                     _a.label = 1;
