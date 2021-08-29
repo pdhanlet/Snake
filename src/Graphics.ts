@@ -55,24 +55,24 @@ export class Graphics {
         let head = this.two.makeRectangle(75 + location.x * 50, 475 - (location.y * 50), 50, 50);
         head.fill = "#00FF00";
         let leftEyePossibilties = {
-            [Direction.UP] : new Location(16.6, 16.6),
-            [Direction.DOWN] : new Location(33.3, 33.3),
-            [Direction.RIGHT] : new Location(33.3, 16.6),
-            [Direction.LEFT] : new Location(16.6, 33.3)
-        }
-        let leftEye = this.two.makeRectangle(
-            location.x * 50 + 50 + leftEyePossibilties[direction].x, 
-            500 - (location.y * 50 + 50 + leftEyePossibilties[direction].y), 
-            5, 5);
-        leftEye.fill = "#000000";
-        let rightEyePossibilties = {
-            [Direction.UP] : new Location(33.3, 16.6),
-            [Direction.DOWN] : new Location(16.6, 33.3),
+            [Direction.UP] : new Location(16.6, 33.3),
+            [Direction.DOWN] : new Location(33.3, 16.6),
             [Direction.RIGHT] : new Location(33.3, 33.3),
             [Direction.LEFT] : new Location(16.6, 16.6)
         }
+        let leftEye = this.two.makeRectangle(
+            location.x * 50 + 50 + leftEyePossibilties[direction].x, 
+            500 - (location.y * 50 + leftEyePossibilties[direction].y), 
+            5, 5);
+        leftEye.fill = "#000000";
+        let rightEyePossibilties = {
+            [Direction.UP] : new Location(33.3, 33.3),
+            [Direction.DOWN] : new Location(16.6, 16.6),
+            [Direction.RIGHT] : new Location(33.3, 16.6),
+            [Direction.LEFT] : new Location(16.6, 33.3)
+        }
         let rightEye = this.two.makeRectangle(
-            location.x * 50 + rightEyePossibilties[direction].x, 
+            location.x * 50 + 50 + rightEyePossibilties[direction].x, 
             500 - (location.y * 50 + rightEyePossibilties[direction].y), 
             5, 5);
         rightEye.fill = "#000000";
