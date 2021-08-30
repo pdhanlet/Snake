@@ -5,19 +5,19 @@ export class InputManager {
     
     constructor() {
         console.log("Input initialized");
-        this.input = 1;
+        this.input = undefined;
         // let elem: HTMLElement = document.createElement("text");  
         // document.body.appendChild(elem);
         let elem = document.getElementById("test");
         elem.focus();
         //elem.addEventListener("keydown", this.onKeyPress);
-        this.press(new KeyboardEvent("keydown", {key:"d"}));
-        console.log(`In constructor after press  = ${this.input}`);
+        //this.press(new KeyboardEvent("keydown", {key:"w"}));
+        //console.log(`In constructor after press  = ${this.input}`);
         
     }
 
-    private press(e: KeyboardEvent) {
- 
+    private onKeyPress(e: KeyboardEvent) { 
+        console.log(`e = ${e}`);
         console.log(e.key);
         switch (e.key) {
             case "a":

@@ -5,16 +5,17 @@ var Direction_1 = require("./GameState/Direction");
 var InputManager = /** @class */ (function () {
     function InputManager() {
         console.log("Input initialized");
-        this.input = 1;
+        this.input = undefined;
         // let elem: HTMLElement = document.createElement("text");  
         // document.body.appendChild(elem);
         var elem = document.getElementById("test");
         elem.focus();
-        //elem.addEventListener("keydown", this.onKeyPress);
-        this.press(new KeyboardEvent("keydown", { key: "d" }));
-        console.log("In constructor after press  = " + this.input);
+        elem.addEventListener("keydown", this.onKeyPress);
+        //this.press(new KeyboardEvent("keydown", {key:"w"}));
+        //console.log(`In constructor after press  = ${this.input}`);
     }
-    InputManager.prototype.press = function (e) {
+    InputManager.prototype.onKeyPress = function (e) {
+        console.log("e = " + e);
         console.log(e.key);
         switch (e.key) {
             case "a":
