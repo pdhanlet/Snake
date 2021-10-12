@@ -42,23 +42,21 @@ var InputManager_1 = require("./InputManager");
 var Graphics_1 = require("./Graphics");
 function runGame() {
     return __awaiter(this, void 0, void 0, function () {
-        var grid, inputManager, graphics, gameEnd;
+        var grid, graphics, gameEnd;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     grid = new Grid_1.Grid();
-                    inputManager = new InputManager_1.InputManager();
-                    console.log("After constructor  = " + inputManager.getInput1());
                     graphics = new Graphics_1.Graphics();
                     graphics.renderGrid(grid.getTilesAndDirection());
                     _a.label = 1;
                 case 1:
                     if (!true) return [3 /*break*/, 3];
-                    gameEnd = grid.nextFrame(inputManager.getInput());
+                    gameEnd = grid.nextFrame((0, InputManager_1.useInput)());
                     graphics.renderGrid(grid.getTilesAndDirection());
                     if (gameEnd)
                         return [3 /*break*/, 3];
-                    return [4 /*yield*/, new Promise(function (r) { return setTimeout(r, 500); })];
+                    return [4 /*yield*/, new Promise(function (r) { return setTimeout(r, 300); })];
                 case 2:
                     _a.sent();
                     return [3 /*break*/, 1];
